@@ -1,0 +1,9 @@
+fastapi==0.100.0
+uvicorn==0.23.0
+python-multipart==0.0.6
+demucs==4.0.0
+torch==2.0.1
+torchaudio==2.0.2
+boto3==1.28.0  # Para armazenamento S3 (opcional se usar outro storage)
+python-dotenv==1.0.0
+pydantic==2.0.3
