@@ -7,12 +7,16 @@ RUN apt-get update && apt-get install -y \
     ffmpeg \
     libsndfile1 \
     git \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar arquivos de requisitos
-COPY requirements.txt .
+# Configuração para NumPy
+ENV NPY_DISABLE_ARRAY_API=1
 
 # Instalar dependências Python
+RUN pip install --no-cache-dir numpy==1.25.0
+RUN pip install --no-cache-dir torch==2.0.1 torchaudio==2.0.2
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar o código da aplicação
